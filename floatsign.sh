@@ -426,6 +426,9 @@ else
 					fi
 					echo "Setting get-task-allow entitlement to NO"
 					PlistBuddy -c "Set :get-task-allow NO" "$TEMP_DIR/newEntitlements"
+					echo "Change aps-environment to production"
+					PlistBuddy -c "Set :aps-environment production" "$TEMP_DIR/newEntitlements"
+
 				else
 					echo "Assuming Development Identity"
 					if [ "$ADJUST_BETA_REPORTS_ACTIVE_FLAG" == "1" ]; then
